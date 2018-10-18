@@ -12,9 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/menu', 'ProductController@index')->name('product.index');
+
+Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
+Route::patch('/profile', 'ProfileController@update');
+
+Route::get('/promotion', 'PromotionController@index')->name('promotion.index');
+
+Route::get('/feedback', 'FeedbackController@create')->name('feedback.create');
+Route::post('/feedback', 'FeedbackController@store');
+
+// Route::get('/order', 'OrderController@index')->name('get.order.index');
+
+Route::get('/promotion', 'PromotionController@index');
+
+Route::get('/feedback', 'FeedbackController@index');
+
+Route::get('/aboutUs', 'AboutUsController@index');
