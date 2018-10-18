@@ -29,7 +29,7 @@ class RegisterTest extends TestCase
 
     // a user can view registration form
 
-    public function test_user_can_view_feedback_form()
+    public function test_user_can_view_register_form()
     {
         $response = $this->get('/register');
         $response->assertSuccessful();
