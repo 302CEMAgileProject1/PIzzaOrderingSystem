@@ -8,49 +8,19 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index()
+   public function __construct()
     {
-        return view('user.profiles.index');
+        $this->middleware('auth');
     }
 
-    public function store()
+    public function show(User $user)
     {
-        // Validate the form for server side
-        $this->validate(request(), [
-            'user_id' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'company' => 'required',
-            'street' => 'required',
-            'city' => 'required',
-            'zip_code' => 'required',
-            'state' => 'required',
-            'country' => 'required',
-            'phone' => 'required'
-        ]);
-
-        // Store the form into database
-        Profile::create([
-            'user_id' => request('user_id'),
-            'first_name' => request('first_name'),
-            'last_name' => request('last_name'),
-            'company' => request('company'),
-            'street' => request('street'),
-            'city' => request('city'),
-            'zip_code' => request('zip_code'),
-            'state' => request('state'),
-            'country' => request('country'),
-            'phone' => request('phone')
-        ]);
-
-        return redirect('/');
+        return view('user.profiles.show', compact('user'));
     }
 
     public function update(Request $request)
     {
         $this->validate(request(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
             'company' => 'required',
             'street' => 'required',
             'city' => 'required',
@@ -64,6 +34,6 @@ class ProfileController extends Controller
 
         $profile->update($request->all());
 
-        return redirect('/profile');
+        return back()->with('success', 'Profile updated!');
     }
 }
