@@ -7,7 +7,7 @@
         <div class="panel-body">
             <ul class="nav nav-pills flex-column text-sm">
                 <li class="nav-item">
-                    <a href="{{ route('get.profile.index') }}" class="nav-link"><i class="fa fa-list"></i> My Profile</a>
+                    <a href="{{ route('profile.show', [Auth::user()]) }}" class="nav-link"><i class="fa fa-list"></i> My Profile</a>
                 </li>
 
                 <li class="nav-item">
