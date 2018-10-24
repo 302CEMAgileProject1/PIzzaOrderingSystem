@@ -42,14 +42,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="company">Company</label>
-                                <input id="company" type="text" class="form-control" name="company" required>
+                                <input id="company" type="text" class="form-control" name="company" value="{{$user->profile->company}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="street">Street</label>
-                                <input id="street" type="text" class="form-control" name="street" required>
+                                <input id="street" type="text" class="form-control" name="street" value="{{$user->profile->street}}" required>
                             </div>
                         </div>
                     </div>
@@ -58,35 +58,35 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="city">City</label>
-                                <input id="city" type="text" class="form-control" name="city" required>
+                                <input id="city" type="text" class="form-control" name="city" value="{{$user->profile->city}}"  required>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="zip_code">ZIP</label>
-                                <input id="zip_code" type="text" class="form-control" name="zip_code" required>
+                                <input id="zip_code" type="text" class="form-control" name="zip_code" value="{{$user->profile->zip_code}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="state">State</label>
-                                <input id="state" type="text" class="form-control" name="state" required>
+                                <input id="state" type="text" class="form-control" name="state" value="{{$user->profile->state}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="country">Country</label>
-                                <input id="country" type="text" class="form-control" name="country" required>
+                                <input id="country" type="text" class="form-control" name="country" value="{{$user->profile->country}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone">Telephone</label>
-                                <input id="phone" type="text" class="form-control" name="phone" required>
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{$user->profile->phone}}" required>
                             </div>
                         </div>
 
