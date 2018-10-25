@@ -31,12 +31,10 @@ class FeedbackTest extends TestCase
     }
 
     //Below is to test whether the user can see the specific name form in feedback page
-    public function validate_whether_name_field_in_form_is_required()
+    public function test_to_validate_whether_name_field_in_form_is_required()
     {
-        $this->withExceptionHandling();
-
         //Generate a fake profile
-        $feedback = factory('App\Feedback')->create(['name' => null]);
+        $feedback = factory('App\Feedback')->create();
 
         // Test the post route in the controller
         $this->post('/feedback', [
@@ -47,14 +45,13 @@ class FeedbackTest extends TestCase
     }
 
     //Below is to test whether the user can see the specific title form in feedback page
-    public function validate_whether_title_field_in_form_is_required() 
+    public function test_to_validate_whether_title_field_in_form_is_required() 
     {
-
         //Generate a fake profile
-        $profile = factory('App\Feedback')->create(['title' => null]);
+        $feedback = factory('App\Feedback')->create();
 
         // Test the post route in the controller
-        $this->post('/profile', [
+        $this->post('/feedback', [
             'title' => ''
         ])
             // Session should have an error in title's field
@@ -62,20 +59,17 @@ class FeedbackTest extends TestCase
     }
 
     //Below is to test whether the user can see the specific message form in feedback page
-    public function validate_whether_message_field_in_form_is_required() 
+    public function test_to_validate_whether_message_field_in_form_is_required() 
 
     {
         //Generate a fake profile
-        $profile = factory('App\Feedback')->create(['message' => null]);
+        $feedback = factory('App\Feedback')->create();
 
         // Test the post route in the controller
-        $this->post('/profile', [
+        $this->post('/feedback', [
             'message' => ''
         ])
             // Session should have an error in message's field
             ->assertSessionHasErrors('message');
     }
-
-
-
 }
