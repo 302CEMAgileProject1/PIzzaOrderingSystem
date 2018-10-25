@@ -43,6 +43,132 @@ class ProfileTest extends TestCase
     }
     
     /** @test */
+    public function an_authenticated_user_can_view_company_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's company details
+            ->assertSee($profile->company);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_street_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's street details
+            ->assertSee($profile->street);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_city_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's city details
+            ->assertSee($profile->city);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_zipcode_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's zip code details
+            ->assertSee($profile->zip_code);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_state_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's state details
+            ->assertSee($profile->state);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_country_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's country details
+            ->assertSee($profile->country);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_view_phone_details()
+    {
+        //Generate a fake profile
+        $profile = factory('App\Profile')->create();
+
+        // Assign it to the user
+        $user = $profile->user;
+
+        // Authenticate the user
+        $this->be($user);
+
+        // Will get the URL
+        $this->get('/profile/'.$user->name)
+            // Check whether can see the User's phone details
+            ->assertSee($profile->phone);
+    }
+    
+    /** @test */
     public function validate_that_company_field_in_form_is_required()
     {
         $this->withExceptionHandling();
