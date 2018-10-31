@@ -6,6 +6,9 @@
 
 @section('content')
     <div class="row">
+    
+    {{--Search feature--}}
+    @include('user.layouts.search')
 
         @foreach($products as $product)
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 my-2">
