@@ -27,11 +27,4 @@ class CartController extends Controller
 
         return redirect(route('product.index'));
     }
-
-    public function destroy($id)
-    {
-        Cart::remove($id);
-
-        return redirect(route('cart.index'));
-    }
 }
