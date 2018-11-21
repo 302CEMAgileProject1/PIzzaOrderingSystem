@@ -26,8 +26,8 @@ class CartController extends Controller
         Cart::add($request->id, $request->name, $request->price, 1);
 
         return redirect(route('product.index'));
-    }
-
+    }    
+    
     public function destroy($id)
     {
         Cart::remove($id);

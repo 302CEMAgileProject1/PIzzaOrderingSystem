@@ -29,6 +29,7 @@
                         <th>Quantity</th>
                         <th>Price (RM)</th>
                         <th>Total (RM)</th>
+                        <th>Action</th> //Updated
                     </tr>
 
                 <tbody>
@@ -39,6 +40,15 @@
                         <td>{{ $item->quantity }}</td>
                         <td>{{ $item->price}}</td>
                         <td>{{ $item->price * $item->quantity }}</td>
+                        <td>
+                            <form method="POST" action="{{ route('cart.destroy', [$item->id]) }}"  class="side-by-side">
+                                {{method_field('DELETE')}}
+
+                                {{ csrf_field() }}
+
+                                <input type="submit" class="btn btn-danger btn-sm" value="Remove">
+                            </form>
+                        </td> //Updated
                     </tr>
                     @endforeach
 
@@ -70,3 +80,4 @@
     @endif
 
 @endsection
+
